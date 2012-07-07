@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class Route::BuilderTest < MiniTest::Unit::TestCase
-  def test_a
+  def test_builder_return_routes_instance
     rs = Route::Builder.build
 
     assert_kind_of Route::Routes, rs
