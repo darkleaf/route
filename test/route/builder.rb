@@ -3,7 +3,6 @@ require 'test_helper'
 class Route::BuilderTest < MiniTest::Unit::TestCase
   def setup
     @rs = Route::Builder.build do
-      resources :car
     end
   end
 
