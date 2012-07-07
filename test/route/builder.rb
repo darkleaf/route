@@ -1,12 +1,13 @@
 require 'test_helper'
 
 class Route::BuilderTest < MiniTest::Unit::TestCase
-  def test_builder_return_routes_instance
-    rs = Route::Builder.build do
-
+  def setup
+    @rs = Route::Builder.build do
+      resources :car
     end
-
-    assert_kind_of Route::Routes, rs
   end
 
+  def test_return_correct_class
+    assert_kind_of Route::Routes, @rs
+  end
 end
