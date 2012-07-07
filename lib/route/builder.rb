@@ -18,13 +18,13 @@ class Route::Builder
     controller = name.to_s
 
     actions = {
-        new: { method: :get, path: "/#{controller}/new" },
-        create: { method: :post, path: "/#{controller}" },
-        edit: { method: :get, path: "/#{controller}/:id/edit" },
-        show: { method: :get, path: "/#{controller}/:id" },
-        update: { method: :put, path: "/#{controller}/:id" },
-        destroy: { method: :delete, path: "/#{controller}/:id" },
-        index: { method: :get, path: "/#{controller}" }
+        new: { method: :get, path: "/#{controller}/new", helper: "new_#{controller.singularize}" },
+        create: { method: :post, path: "/#{controller}", helper: "#{controller}" },
+        edit: { method: :get, path: "/#{controller}/:id/edit", helper: "edit_#{controller.singularize}" },
+        show: { method: :get, path: "/#{controller}/:id", helper: "#{controller.singularize}" },
+        update: { method: :put, path: "/#{controller}/:id", helper: "#{controller.singularize}" },
+        destroy: { method: :delete, path: "/#{controller}/:id", helper: "#{controller.singularize}" },
+        index: { method: :get, path: "/#{controller}", helper: "#{controller}" }
     }
 
     actions.each_pair do |k, v|

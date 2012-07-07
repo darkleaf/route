@@ -6,6 +6,7 @@ class Route::RoutesTest < MiniTest::Unit::TestCase
       resources :cars
     end
   end
+=begin
 
   def test_get_index_route
     route = @rs.get_route '/cars', :get
@@ -42,5 +43,22 @@ class Route::RoutesTest < MiniTest::Unit::TestCase
     route = @rs.get_route '/cars/1', :put
 
     assert_equal route.action, :update
+  end
+
+
+=end
+
+  def test_helper_resources_path
+    assert_equal @rs.cars_path, '/cars'
+  end
+
+  def test_helper_resource_path
+    assert_equal @rs.car_path(1), '/cars/1'
+  end
+  def test_helper_new_resource_path
+    assert_equal @rs.new_car_path, '/cars/new'
+  end
+  def test_helper_edit_resources_path
+    assert_equal @rs.edit_car_path(1), '/cars/1/edit'
   end
 end
